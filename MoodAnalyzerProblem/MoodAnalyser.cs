@@ -9,15 +9,34 @@ namespace MoodAnalyzerProblem
     public class MoodAnalyser
     {
         public string message;
-       public string AnalyseMood(string message)
+        //Refactor 
+        public MoodAnalyser()
         {
-            if(message.ToLower().Contains("happy"))
+            Console.WriteLine("Default constructor");
+        }
+        public MoodAnalyser(string message)
+        {
+            this.message = message;
+        }
+
+        public string AnalyseMood()//(string message)// UC1
+        {
+            //UC2 Passing null value
+            try
             {
-                return "Happy";
+               if(message.ToLower().Contains("happy"))
+               {
+                   return "Happy";
+               }
+               else
+               {
+                   return "Sad";
+               }
             }
-            else
+            catch(NullReferenceException ex)
             {
-                return "Sad";
+                Console.WriteLine(ex.Message);
+                return "Happy";
             }
         }
     }
