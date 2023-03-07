@@ -35,8 +35,11 @@ namespace MoodAnalyzerProblem
             }
             catch(NullReferenceException ex)
             {
-                Console.WriteLine(ex.Message);
-                return "Happy";
+                //Console.WriteLine(ex.Message);
+                //return "Happy";
+                //UC3
+               // throw new CustomMoodAnalyserException("Message should not be null",CustomMoodAnalyserException.ExceptionType.NULL_MESSAGE); //TC3.1
+                throw new CustomMoodAnalyserException("Message should not be empty", CustomMoodAnalyserException.ExceptionType.EMPTY_MESSAGE); //TC3.2
             }
         }
     }
